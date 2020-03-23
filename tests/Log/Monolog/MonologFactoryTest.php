@@ -35,7 +35,7 @@ class MonologFactoryTest extends TestCase
         putenv('SENTRY_PROJECT_ID=project_id');
         putenv('APP_ENV=app_env');
 
-        $this->testDir = dirname(dirname(dirname(dirname(__FILE__))));
+        $this->testDir = dirname(dirname(dirname(__FILE__)));
         $this->monologFactory = new MonologFactory($this->testDir . '/configs/monolog.configs.json');
     }
 
