@@ -1,4 +1,4 @@
-# Brighte SDK
+# Object Factory
 [![Software license][ico-license]](README.md)
 [![Version][ico-version-stable]][link-packagist]
 [![Download][ico-downloads-monthly]][link-downloads]
@@ -16,16 +16,10 @@
 [link-travis]: https://travis-ci.com/brighte-capital/brighte-sdk
 [link-downloads]: https://packagist.org/packages/brightecapital/brighte-sdk/stats
 
-### Brighte SDK includes two sections
-#### 1. Infrastructure: A collection of tools that allow to easily configure and create objects on the flight:
+### A collection of tools that allow to easily configure and create objects on the flight:
 
 + (AWS) SqsClientFactory
 + (AWS) SnsClientFactory
 + (Doctrine) EntityManagerFactory
 + MonologFactory
 + RedisClientFactory 
-
-#### 2. Micrservices: This the the acutal sdk that provide api to each of the microservice
-
-+ Identity service
-+ Crm service
