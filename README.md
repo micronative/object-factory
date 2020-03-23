@@ -13,7 +13,7 @@
 
 [link-packagist]: https://packagist.org/packages/micronative/object-factory
 [link-codecov]: https://codecov.io/gh/micronative/object-factory
-[link-travis]: https://travis-ci.com/micronative/object-factory
+[link-travis]: https://travis-ci.org/github/micronative/object-factory
 [link-downloads]: https://packagist.org/packages/micronative/object-factory/stats
 
 ### A collection of tools that allow to easily configure and create objects
