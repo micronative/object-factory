@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Micronative\Aws\Sqs;
+namespace Micronative\ObjectFactory\Aws\Sqs;
 
 use Micronative\Sqs\SqsMessage;
 

@@ -1,7 +1,7 @@
 <?php
 namespace Micronative\Test\Aws\Sqs;
-use Micronative\Aws\Sqs\SqsClient;
-use Micronative\Aws\Sqs\SqsClientFactory;
+use Micronative\ObjectFactory\Aws\Sqs\SqsClient;
+use Micronative\ObjectFactory\Aws\Sqs\SqsClientFactory;
 use PHPUnit\Framework\TestCase;
 
 
@@ -17,7 +17,7 @@ class SqsConfigTest extends TestCase
     /** @var $sqsClient SqsClient*/
     private $sqsClient;
 
-    /** @var $config \Micronative\Aws\Sqs\SqsConfig*/
+    /** @var $config \Micronative\ObjectFactory\Aws\Sqs\SqsConfig*/
     private $config;
 
     public function setUp()
@@ -25,8 +25,8 @@ class SqsConfigTest extends TestCase
         parent::setUp();
 
         $this->connectionName = 'sqs.ms.crm';
-        $this->testDir = dirname(dirname(__FILE__));
-        $this->sqsConfigFilename = '/../../configs/sqs.configs.json';
+        $this->testDir = dirname(dirname(dirname(__FILE__)));
+        $this->sqsConfigFilename = '/configs/sqs.configs.json';
         $this->sqsConfigSettings = $this->testDir . $this->sqsConfigFilename;
         $this->configContents =  json_decode(file_get_contents($this->sqsConfigSettings), true);
         $this->configContents = $this->configContents[$this->connectionName];

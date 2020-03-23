@@ -1,6 +1,6 @@
 <?php
 
-namespace Micronative\Cache\Redis;
+namespace Micronative\ObjectFactory\Cache\Redis;
 
 class RedisConfig
 {
@@ -48,7 +48,7 @@ class RedisConfig
 
     /**
      * @param string|null $scheme
-     * @return \Micronative\Cache\Redis\RedisConfig
+     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfig
      */
     public function setScheme(?string $scheme = null): RedisConfig
     {
@@ -67,7 +67,7 @@ class RedisConfig
 
     /**
      * @param string|null $host
-     * @return \Micronative\Cache\Redis\RedisConfig
+     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfig
      */
     public function setHost(?string $host = null): RedisConfig
     {
@@ -86,7 +86,7 @@ class RedisConfig
 
     /**
      * @param int|null $port
-     * @return \Micronative\Cache\Redis\RedisConfig
+     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfig
      */
     public function setPort(?int $port = null): RedisConfig
     {

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Micronative\Aws\Sns;
+namespace Micronative\ObjectFactory\Aws\Sns;
 
 interface SnsClientInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Micronative\Database\Doctrine;
+namespace Micronative\ObjectFactory\Database\Doctrine;
 
 class DoctrineConfig
 {
@@ -127,7 +127,7 @@ class DoctrineConfig
 
     /**
      * @param string $driver
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setDriver(string $driver = null)
     {
@@ -146,7 +146,7 @@ class DoctrineConfig
 
     /**
      * @param string $host
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setHost(string $host = null)
     {
@@ -165,7 +165,7 @@ class DoctrineConfig
 
     /**
      * @param string $port
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setPort(string $port = null)
     {
@@ -184,7 +184,7 @@ class DoctrineConfig
 
     /**
      * @param string $dbname
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setDbname(string $dbname = null)
     {
@@ -203,7 +203,7 @@ class DoctrineConfig
 
     /**
      * @param string $user
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setUser(string $user = null)
     {
@@ -222,7 +222,7 @@ class DoctrineConfig
 
     /**
      * @param string $password
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setPassword(string $password = null)
     {
@@ -241,7 +241,7 @@ class DoctrineConfig
 
     /**
      * @param string $charset
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setCharset(string $charset = null)
     {
@@ -260,7 +260,7 @@ class DoctrineConfig
 
     /**
      * @param string $collation
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setCollation(string $collation)
     {
@@ -279,7 +279,7 @@ class DoctrineConfig
 
     /**
      * @param string $prefix
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setPrefix(string $prefix)
     {
@@ -298,7 +298,7 @@ class DoctrineConfig
 
     /**
      * @param bool $memory
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setMemory(bool $memory)
     {
@@ -317,7 +317,7 @@ class DoctrineConfig
 
     /**
      * @param bool $devMode
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setDevMode(bool $devMode)
     {
@@ -336,7 +336,7 @@ class DoctrineConfig
 
     /**
      * @param bool $cache
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setCache(bool $cache)
     {
@@ -355,7 +355,7 @@ class DoctrineConfig
 
     /**
      * @param string $cacheDir
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setCacheDir(string $cacheDir = null)
     {
@@ -374,7 +374,7 @@ class DoctrineConfig
 
     /**
      * @param array $metadataDirs
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setMetadataDirs(array $metadataDirs = null)
     {
@@ -393,7 +393,7 @@ class DoctrineConfig
 
     /**
      * @param string $ignoredNamespacess
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
      */
     public function setIgnoredNamespaces(string $ignoredNamespacess = null)
     {

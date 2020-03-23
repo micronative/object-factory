@@ -1,8 +1,8 @@
 <?php
 
-namespace Micronative\Database\Doctrine;
+namespace Micronative\ObjectFactory\Database\Doctrine;
 
-use Micronative\Database\Doctrine\Exceptions\DoctrineConfigException;
+use Micronative\ObjectFactory\Database\Doctrine\Exceptions\DoctrineConfigException;
 use ServiceSchema\Json\JsonReader;
 
 class DoctrineConfigFactory
@@ -20,7 +20,7 @@ class DoctrineConfigFactory
      * DoctrineConfigFactory constructor.
      *
      * @param string|null $configFile
-     * @throws \Micronative\Database\Doctrine\Exceptions\DoctrineConfigException
+     * @throws \Micronative\ObjectFactory\Database\Doctrine\Exceptions\DoctrineConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
@@ -30,7 +30,7 @@ class DoctrineConfigFactory
     }
 
     /**
-     * @throws \Micronative\Database\Doctrine\Exceptions\DoctrineConfigException
+     * @throws \Micronative\ObjectFactory\Database\Doctrine\Exceptions\DoctrineConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     protected function loadConfigs(): void
@@ -44,8 +44,8 @@ class DoctrineConfigFactory
 
     /**
      * @param string|null $connectionName
-     * @return \Micronative\Database\Doctrine\DoctrineConfig
-     * @throws \Micronative\Database\Doctrine\Exceptions\DoctrineConfigException
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
+     * @throws \Micronative\ObjectFactory\Database\Doctrine\Exceptions\DoctrineConfigException
      */
     public function get(?string $connectionName = null): DoctrineConfig
     {

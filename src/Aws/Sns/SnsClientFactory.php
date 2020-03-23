@@ -1,6 +1,6 @@
 <?php
 
-namespace Micronative\Aws\Sns;
+namespace Micronative\ObjectFactory\Aws\Sns;
 
 class SnsClientFactory
 {
@@ -8,14 +8,14 @@ class SnsClientFactory
     /** @var string */
     protected $configFile;
 
-    /** @var \Micronative\Aws\Sns\SnsConfigFactory */
+    /** @var \Micronative\ObjectFactory\Aws\Sns\SnsConfigFactory */
     protected $configFactory;
 
     /**
      * SqsClientFactory constructor.
      *
      * @param string|null $configFile
-     * @throws \Micronative\Aws\Sns\Exceptions\SnsConfigException
+     * @throws \Micronative\ObjectFactory\Aws\Sns\Exceptions\SnsConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
@@ -26,12 +26,12 @@ class SnsClientFactory
 
     /**
      * @param string|null $connectionName
-     * @return \Micronative\Aws\Sns\SnsClientInterface
-     * @throws \Micronative\Aws\Sns\Exceptions\SnsConfigException
+     * @return \Micronative\ObjectFactory\Aws\Sns\SnsClientInterface
+     * @throws \Micronative\ObjectFactory\Aws\Sns\Exceptions\SnsConfigException
      */
     public function create(?string $connectionName = null): SnsClientInterface
     {
-        /** @var \Micronative\Aws\Sns\SnsConfig $config */
+        /** @var \Micronative\ObjectFactory\Aws\Sns\SnsConfig $config */
         $config = $this->configFactory->get($connectionName);
 
         return new SnsClient($config);

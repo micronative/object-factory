@@ -1,7 +1,7 @@
 <?php
 namespace Micronative\Test\Aws\Sqs;
-use Micronative\Database\Doctrine\DoctrineConfig;
-use Micronative\Database\Doctrine\DoctrineConfigFactory;
+use Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig;
+use Micronative\ObjectFactory\Database\Doctrine\DoctrineConfigFactory;
 use PHPUnit\Framework\TestCase;
 
 
@@ -18,8 +18,8 @@ class SqsDoctrineConfigFactoryTest extends TestCase
     {
         parent::setUp();
         $this->connectionName = 'doctrine.ms.crm';
-        $this->testDir = dirname(dirname(__FILE__));
-        $this->sqsConfigFilename = '/../../configs/doctrine.configs.json';
+        $this->testDir = dirname(dirname(dirname(__FILE__)));
+        $this->sqsConfigFilename = '/configs/doctrine.configs.json';
         $this->sqsConfigSettings = $this->testDir . $this->sqsConfigFilename;
         $this->configContents =  json_decode(file_get_contents($this->sqsConfigSettings), true);
         $this->configContents = $this->configContents[$this->connectionName];

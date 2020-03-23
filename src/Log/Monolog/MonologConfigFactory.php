@@ -1,8 +1,8 @@
 <?php
 
-namespace Micronative\Log\Monolog;
+namespace Micronative\ObjectFactory\Log\Monolog;
 
-use Micronative\Log\Monolog\Exceptions\MonologConfigException;
+use Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException;
 use ServiceSchema\Json\JsonReader;
 
 class MonologConfigFactory
@@ -18,7 +18,7 @@ class MonologConfigFactory
      * MonologConfigFactory constructor.
      *
      * @param string|null $configFile
-     * @throws \Micronative\Log\Monolog\Exceptions\MonologConfigException
+     * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
@@ -28,7 +28,7 @@ class MonologConfigFactory
     }
 
     /**
-     * @throws \Micronative\Log\Monolog\Exceptions\MonologConfigException
+     * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     protected function loadConfigs(): void
@@ -42,8 +42,8 @@ class MonologConfigFactory
 
     /**
      * @param string|null $configName
-     * @return \Micronative\Log\Monolog\MonologConfig
-     * @throws \Micronative\Log\Monolog\Exceptions\MonologConfigException
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
+     * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      */
     public function get(?string $configName = null): MonologConfig
     {

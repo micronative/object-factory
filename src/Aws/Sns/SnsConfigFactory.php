@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace Micronative\Aws\Sns;
+namespace Micronative\ObjectFactory\Aws\Sns;
 
-use Micronative\Aws\Sns\Exceptions\SnsConfigException;
+use Micronative\ObjectFactory\Aws\Sns\Exceptions\SnsConfigException;
 use ServiceSchema\Json\JsonReader;
 
 class SnsConfigFactory
@@ -20,7 +20,7 @@ class SnsConfigFactory
      * SqsConfigFactory constructor.
      *
      * @param string|null $configFile
-     * @throws \Micronative\Aws\Sns\Exceptions\SnsConfigException
+     * @throws \Micronative\ObjectFactory\Aws\Sns\Exceptions\SnsConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
@@ -30,7 +30,7 @@ class SnsConfigFactory
     }
 
     /**
-     * @throws \Micronative\Aws\Sns\Exceptions\SnsConfigException
+     * @throws \Micronative\ObjectFactory\Aws\Sns\Exceptions\SnsConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     protected function loadConfigs(): void
@@ -44,8 +44,8 @@ class SnsConfigFactory
 
     /**
      * @param string|null $connectionName
-     * @return \Micronative\Aws\Sns\SnsConfig
-     * @throws \Micronative\Aws\Sns\Exceptions\SnsConfigException
+     * @return \Micronative\ObjectFactory\Aws\Sns\SnsConfig
+     * @throws \Micronative\ObjectFactory\Aws\Sns\Exceptions\SnsConfigException
      */
     public function get(?string $connectionName = null): SnsConfig
     {

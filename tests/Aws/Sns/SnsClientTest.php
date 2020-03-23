@@ -1,24 +1,24 @@
 <?php
+
 namespace Micronative\Test\Aws\Sns;
 
-use Micronative\Aws\Sns\SnsClientFactory;
-use Micronative\Aws\Sns\SnsConfig;
-use Micronative\Sns\SnsProducer;
+use Micronative\ObjectFactory\Aws\Sns\SnsClient;
+use Micronative\ObjectFactory\Aws\Sns\SnsClientFactory;
+use Micronative\ObjectFactory\Aws\Sns\SnsConfig;
 use Micronative\Sns\SnsConnectionFactory;
 use Micronative\Sns\SnsContext;
+use Micronative\Sns\SnsProducer;
 use PHPUnit\Framework\TestCase;
-use Micronative\Aws\Sns\SnsClient;
-use ReflectionClass;
 
 class SnsClientTest extends TestCase
 {
     private $testDir;
     private $snsConfig;
 
-    /** @var $snsClientFactory SnsClientFactory*/
+    /** @var $snsClientFactory SnsClientFactory */
     private $snsClientFactory;
 
-    /** @var $snsClient SnsClient*/
+    /** @var $snsClient SnsClient */
     private $snsClient;
 
     /**
@@ -36,8 +36,8 @@ class SnsClientTest extends TestCase
         parent::setUp();
 
         $this->sampleMessage = 'Sample Message';
-        $this->testDir = dirname(dirname(__FILE__));
-        $this->snsConfig = '/../../configs/sns.configs.json';
+        $this->testDir = dirname(dirname(dirname(__FILE__)));
+        $this->snsConfig = '/configs/sns.configs.json';
         $this->snsConfigSettings = $this->testDir . $this->snsConfig;
         $this->putEnvVariables();
 
@@ -47,6 +47,17 @@ class SnsClientTest extends TestCase
         $this->snsClient = $this->snsClientFactory->create('sns.ms.crm');
 
         $this->snsClientMock = $this->createMock(get_class($this->snsClient));
+    }
+
+    public function putEnvVariables()
+    {
+        $this->configContents = json_decode(file_get_contents($this->snsConfigSettings));
+
+        foreach ($this->configContents as $key => $para) {
+            foreach ($para as $key => $value) {
+                putenv((string)$value . '=' . $value);
+            }
+        }
     }
 
     public function testGetterSetter()
@@ -103,17 +114,6 @@ class SnsClientTest extends TestCase
             $this->snsClient->send($topic, $body, $properties);
         } catch (\Exception $exception) {
             $this->assertContains('Error executing "CreateTopic"', $exception->getMessage());
-        }
-    }
-
-    public function putEnvVariables()
-    {
-        $this->configContents =  json_decode(file_get_contents($this->snsConfigSettings));
-
-        foreach ($this->configContents as $key => $para) {
-            foreach ($para as $key => $value) {
-                putenv((string)$value . '=' . $value);
-            }
         }
     }
 }

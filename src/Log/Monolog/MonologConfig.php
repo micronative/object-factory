@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Micronative\Log\Monolog;
+namespace Micronative\ObjectFactory\Log\Monolog;
 
 class MonologConfig
 {
@@ -81,7 +81,7 @@ class MonologConfig
 
     /**
      * @param string $name
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setName(string $name = null)
     {
@@ -100,7 +100,7 @@ class MonologConfig
 
     /**
      * @param string $path
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setPath(string $path = null)
     {
@@ -119,7 +119,7 @@ class MonologConfig
 
     /**
      * @param int|string $level
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setLevel($level = null)
     {
@@ -138,7 +138,7 @@ class MonologConfig
 
     /**
      * @param bool $sentry
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setSentry(bool $sentry = null)
     {
@@ -157,7 +157,7 @@ class MonologConfig
 
     /**
      * @param string $sentryDsn
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setSentryDsn(string $sentryDsn = null)
     {
@@ -176,7 +176,7 @@ class MonologConfig
 
     /**
      * @param string $sentryPublicKey
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setSentryPublicKey(string $sentryPublicKey = null)
     {
@@ -195,7 +195,7 @@ class MonologConfig
 
     /**
      * @param string $sentryHost
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setSentryHost(string $sentryHost = null)
     {
@@ -214,7 +214,7 @@ class MonologConfig
 
     /**
      * @param string $sentryProjectId
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setSentryProjectId(string $sentryProjectId = null)
     {
@@ -233,7 +233,7 @@ class MonologConfig
 
     /**
      * @param string $configName
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setConfigName(string $configName = null)
     {
@@ -252,7 +252,7 @@ class MonologConfig
 
     /**
      * @param string $sentryEnvironment
-     * @return \Micronative\Log\Monolog\MonologConfig
+     * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
      */
     public function setSentryEnvironment(string $sentryEnvironment = null)
     {

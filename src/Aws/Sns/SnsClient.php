@@ -1,6 +1,6 @@
 <?php
 
-namespace Micronative\Aws\Sns;
+namespace Micronative\ObjectFactory\Aws\Sns;
 
 use Micronative\Sns\SnsConnectionFactory;
 use Micronative\Sns\SnsContext;
@@ -8,7 +8,7 @@ use Micronative\Sns\SnsContext;
 class SnsClient implements SnsClientInterface
 {
 
-    /** @var \Micronative\Aws\Sns\SnsConfig */
+    /** @var \Micronative\ObjectFactory\Aws\Sns\SnsConfig */
     protected $config;
 
     /** @var \Micronative\Sns\SnsConnectionFactory */
@@ -20,7 +20,7 @@ class SnsClient implements SnsClientInterface
     /**
      * SqsClient constructor.
      *
-     * @param \Micronative\Aws\Sns\SnsConfig|null $config config
+     * @param \Micronative\ObjectFactory\Aws\Sns\SnsConfig|null $config config
      */
     public function __construct(SnsConfig $config = null)
     {
@@ -50,7 +50,7 @@ class SnsClient implements SnsClientInterface
     }
 
     /**
-     * @return \Micronative\Aws\Sns\SnsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sns\SnsConfig
      */
     public function getConfig(): SnsConfig
     {
@@ -58,7 +58,7 @@ class SnsClient implements SnsClientInterface
     }
 
     /**
-     * @param \Micronative\Aws\Sns\SnsConfig $config
+     * @param \Micronative\ObjectFactory\Aws\Sns\SnsConfig $config
      * @return SnsClient
      */
     public function setConfig(SnsConfig $config): SnsClient

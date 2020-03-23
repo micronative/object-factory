@@ -1,7 +1,7 @@
 <?php
 namespace Micronative\Test\Cache\Redis;
 
-use Micronative\Cache\Redis\RedisClientFactory;
+use Micronative\ObjectFactory\Cache\Redis\RedisClientFactory;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -17,8 +17,8 @@ class RedisClientFactoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $testDir = dirname(dirname(__FILE__));
-        $this->redisConfigFilename = '/../../configs/redis.configs.json';
+        $testDir = dirname(dirname(dirname(__FILE__)));
+        $this->redisConfigFilename = '/configs/redis.configs.json';
         $this->redisConfigSettings = $testDir . $this->redisConfigFilename;
         $this->configContents =  json_decode(file_get_contents($this->redisConfigSettings), true);
         $this->configContents = $this->configContents['redis.ms.crm'];

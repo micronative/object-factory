@@ -1,6 +1,6 @@
 <?php
 
-namespace Micronative\Aws\Sqs;
+namespace Micronative\ObjectFactory\Aws\Sqs;
 
 use Micronative\Sqs\SqsConnectionFactory;
 use Micronative\Sqs\SqsConsumer;
@@ -10,7 +10,7 @@ use Micronative\Sqs\SqsMessage;
 
 class SqsClient implements SqsClientInterface
 {
-    /** @var \Micronative\Aws\Sqs\SqsConfig */
+    /** @var \Micronative\ObjectFactory\Aws\Sqs\SqsConfig */
     protected $config;
 
     /** @var \Micronative\Sqs\SqsConnectionFactory */
@@ -28,7 +28,7 @@ class SqsClient implements SqsClientInterface
     /**
      * SqsClient constructor.
      *
-     * @param \Micronative\Aws\Sqs\SqsConfig|null $config config
+     * @param \Micronative\ObjectFactory\Aws\Sqs\SqsConfig|null $config config
      */
     public function __construct(SqsConfig $config = null)
     {
@@ -83,7 +83,7 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @return \Micronative\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
 */
     public function getConfig(): SqsConfig
     {
@@ -91,8 +91,8 @@ class SqsClient implements SqsClientInterface
     }
 
     /**
-     * @param \Micronative\Aws\Sqs\SqsConfig $config
-     * @return \Micronative\Aws\Sqs\SqsClient
+     * @param \Micronative\ObjectFactory\Aws\Sqs\SqsConfig $config
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
      */
     public function setConfig(SqsConfig $config): SqsClient
     {
@@ -111,7 +111,7 @@ class SqsClient implements SqsClientInterface
 
     /**
      * @param \Micronative\Sqs\SqsConnectionFactory $factory
-     * @return \Micronative\Aws\Sqs\SqsClient
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
      */
     public function setFactory(SqsConnectionFactory $factory): SqsClient
     {
@@ -130,7 +130,7 @@ class SqsClient implements SqsClientInterface
 
     /**
      * @param \Micronative\Sqs\SqsContext $context
-     * @return \Micronative\Aws\Sqs\SqsClient
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
      */
     public function setContext(SqsContext $context): SqsClient
     {
@@ -149,7 +149,7 @@ class SqsClient implements SqsClientInterface
 
     /**
      * @param \Micronative\Sqs\SqsDestination $queue
-     * @return \Micronative\Aws\Sqs\SqsClient
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
      */
     public function setQueue(SqsDestination $queue): SqsClient
     {
@@ -168,7 +168,7 @@ class SqsClient implements SqsClientInterface
 
     /**
      * @param \Micronative\Sqs\SqsConsumer $consumer
-     * @return \Micronative\Aws\Sqs\SqsClient
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
      */
     public function setConsumer(SqsConsumer $consumer): SqsClient
     {

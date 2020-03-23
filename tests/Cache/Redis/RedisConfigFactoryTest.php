@@ -2,9 +2,9 @@
 
 namespace Micronative\Test\Cache\Redis;
 
-use Micronative\Cache\Redis\RedisConfigFactory;
-use Micronative\Cache\Redis\RedisConfig;
-use Micronative\Cache\Redis\Exceptions\RedisConfigException;
+use Micronative\ObjectFactory\Cache\Redis\RedisConfigFactory;
+use Micronative\ObjectFactory\Cache\Redis\RedisConfig;
+use Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -22,8 +22,8 @@ class RedisConfigFactoryTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $testDir = dirname(dirname(__FILE__));
-        $redisConfigFilename = '/../../configs/redis.configs.json';
+        $testDir = dirname(dirname(dirname(__FILE__)));
+        $redisConfigFilename = '/configs/redis.configs.json';
         $this->redisConfigSettings = $testDir . $redisConfigFilename;
 
         $this->configContents = json_decode(file_get_contents($this->redisConfigSettings), true);

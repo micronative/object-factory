@@ -2,7 +2,7 @@
 
 namespace Brighte\Tests\Infrastructure\Log\Monolog;
 
-use Micronative\Log\Monolog\MonologConfigFactory;
+use Micronative\ObjectFactory\Log\Monolog\MonologConfigFactory;
 use PHPUnit\Framework\TestCase;
 
 class MonologConfigFactoryTest extends TestCase
@@ -11,11 +11,11 @@ class MonologConfigFactoryTest extends TestCase
     /** @var string */
     protected $testDir;
 
-    /** @var \Micronative\Log\Monolog\MonologConfigFactory */
+    /** @var \Micronative\ObjectFactory\Log\Monolog\MonologConfigFactory */
     protected $configFactory;
 
     /**
-     * @throws \Micronative\Log\Monolog\Exceptions\MonologConfigException
+     * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function setUp()
@@ -36,12 +36,12 @@ class MonologConfigFactoryTest extends TestCase
     }
 
     /**
-     * @covers \Micronative\Log\Monolog\MonologConfigFactory::loadConfigs
-     * @covers \Micronative\Log\Monolog\MonologConfigFactory::get
+     * @covers \Micronative\ObjectFactory\Log\Monolog\MonologConfigFactory::loadConfigs
+     * @covers \Micronative\ObjectFactory\Log\Monolog\MonologConfigFactory::get
      */
     public function testConfig()
     {
-        /** @var \Micronative\Log\Monolog\MonologConfig $config */
+        /** @var \Micronative\ObjectFactory\Log\Monolog\MonologConfig $config */
         $config = $this->configFactory->get('monolog.ms.crm');
         $this->assertEquals($config->getConfigName(), 'monolog.ms.crm');
         $this->assertEquals($config->getName(), getenv('APP_NAME'));

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Micronative\Aws\Sqs;
+namespace Micronative\ObjectFactory\Aws\Sqs;
 
 class SqsConfig
 {
@@ -84,7 +84,7 @@ class SqsConfig
 
     /**
      * @param string|null $key
-     * @return \Micronative\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
      */
     public function setKey(string $key = null): SqsConfig
     {
@@ -103,7 +103,7 @@ class SqsConfig
 
     /**
      * @param string|null $secret
-     * @return \Micronative\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
      */
     public function setSecret(string $secret = null): SqsConfig
     {
@@ -122,7 +122,7 @@ class SqsConfig
 
     /**
      * @param string|null $region
-     * @return \Micronative\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
      */
     public function setRegion(string $region = null): SqsConfig
     {
@@ -141,7 +141,7 @@ class SqsConfig
 
     /**
      * @param string|null $queue
-     * @return \Micronative\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
      */
     public function setQueue(string $queue = null): SqsConfig
     {
@@ -160,7 +160,7 @@ class SqsConfig
 
     /**
      * @param bool|null $fifo
-     * @return \Micronative\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
      */
     public function setFifo(bool $fifo = null): SqsConfig
     {

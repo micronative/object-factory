@@ -1,7 +1,7 @@
 <?php
 namespace Micronative\Test\Aws\Sqs;
-use Micronative\Aws\Sqs\SqsClient;
-use Micronative\Aws\Sqs\SqsClientFactory;
+use Micronative\ObjectFactory\Aws\Sqs\SqsClient;
+use Micronative\ObjectFactory\Aws\Sqs\SqsClientFactory;
 use Micronative\Sqs\SqsProducer;
 use Micronative\Sqs\SqsConsumer;
 use Micronative\Sqs\SqsMessage;
@@ -44,8 +44,8 @@ class SqsClientTest extends TestCase
         parent::setUp();
 
         $this->sampleMessage = 'Sample Message';
-        $this->testDir = dirname(dirname(__FILE__));
-        $this->sqsConfig = '/../../configs/sqs.configs.json';
+        $this->testDir = dirname(dirname(dirname(__FILE__)));
+        $this->sqsConfig = '/configs/sqs.configs.json';
         $this->sqsConfigSettings = $this->testDir . $this->sqsConfig;
         $this->putEnvVariables();
         $this->sqsClientFactory = new SqsClientFactory($this->sqsConfigSettings);

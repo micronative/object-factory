@@ -2,7 +2,7 @@
 
 namespace Brighte\Tests\Infrastructure\Log\Monolog;
 
-use Micronative\Log\Monolog\MonologConfig;
+use Micronative\ObjectFactory\Log\Monolog\MonologConfig;
 use PHPUnit\Framework\TestCase;
 
 class MonologConfigTest extends TestCase
@@ -11,7 +11,7 @@ class MonologConfigTest extends TestCase
     /** @var string */
     protected $testDir;
 
-    /** @var \Micronative\Log\Monolog\MonologConfig */
+    /** @var \Micronative\ObjectFactory\Log\Monolog\MonologConfig */
     protected $config;
 
     public function setUp()

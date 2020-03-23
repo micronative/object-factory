@@ -1,6 +1,6 @@
 <?php
 namespace Micronative\Test\Aws\Sqs;
-use Micronative\Database\Doctrine\EntityManagerFactory;
+use Micronative\ObjectFactory\Database\Doctrine\EntityManagerFactory;
 use PHPUnit\Framework\TestCase;
 
 
@@ -19,8 +19,8 @@ class SqsEntityManagerTest extends TestCase
     {
         parent::setUp();
         $this->connectionName = 'doctrine.ms.crm';
-        $this->testDir = dirname(dirname(__FILE__));
-        $this->sqsConfigFilename = '/../../configs/doctrine.configs.json';
+        $this->testDir = dirname(dirname(dirname(__FILE__)));
+        $this->sqsConfigFilename = '/configs/doctrine.configs.json';
         $this->sqsConfigSettings = $this->testDir . $this->sqsConfigFilename;
         $this->configContents =  json_decode(file_get_contents($this->sqsConfigSettings), true);
         $this->configContents = $this->configContents[$this->connectionName];

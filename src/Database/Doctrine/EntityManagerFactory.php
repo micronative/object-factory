@@ -1,6 +1,6 @@
 <?php
 
-namespace Micronative\Database\Doctrine;
+namespace Micronative\ObjectFactory\Database\Doctrine;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Cache\FilesystemCache;
@@ -14,14 +14,14 @@ class EntityManagerFactory
     /** @var string */
     protected $configFile;
 
-    /** @var \Micronative\Database\Doctrine\DoctrineConfigFactory */
+    /** @var \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfigFactory */
     protected $configFactory;
 
     /**
      * EntityManagerFactory constructor.
      *
      * @param string|null $configFile
-     * @throws \Micronative\Database\Doctrine\Exceptions\DoctrineConfigException
+     * @throws \Micronative\ObjectFactory\Database\Doctrine\Exceptions\DoctrineConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
@@ -33,7 +33,7 @@ class EntityManagerFactory
     /**
      * @param string|null $connectionName
      * @return \Doctrine\ORM\EntityManager
-     * @throws \Micronative\Database\Doctrine\Exceptions\DoctrineConfigException
+     * @throws \Micronative\ObjectFactory\Database\Doctrine\Exceptions\DoctrineConfigException
      * @throws \Doctrine\Common\Annotations\AnnotationException
      * @throws \Doctrine\ORM\ORMException
      */
@@ -72,7 +72,7 @@ class EntityManagerFactory
 
     /**
      * @param string $configFile
-     * @return \Micronative\Database\Doctrine\EntityManagerFactory
+     * @return \Micronative\ObjectFactory\Database\Doctrine\EntityManagerFactory
      */
     public function setConfigFile(string $configFile): EntityManagerFactory
     {
@@ -82,7 +82,7 @@ class EntityManagerFactory
     }
 
     /**
-     * @return \Micronative\Database\Doctrine\DoctrineConfigFactory
+     * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfigFactory
      */
     public function getConfigFactory(): DoctrineConfigFactory
     {
@@ -90,8 +90,8 @@ class EntityManagerFactory
     }
 
     /**
-     * @param \Micronative\Database\Doctrine\DoctrineConfigFactory $configFactory
-     * @return \Micronative\Database\Doctrine\EntityManagerFactory
+     * @param \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfigFactory $configFactory
+     * @return \Micronative\ObjectFactory\Database\Doctrine\EntityManagerFactory
      */
     public function setConfigFactory(DoctrineConfigFactory $configFactory): EntityManagerFactory
     {

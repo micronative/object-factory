@@ -2,7 +2,7 @@
 
 namespace Brighte\Tests\Infrastructure\Log\Monolog;
 
-use Micronative\Log\Monolog\MonologFactory;
+use Micronative\ObjectFactory\Log\Monolog\MonologFactory;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
 
@@ -12,14 +12,14 @@ class MonologFactoryTest extends TestCase
     /** @var string */
     protected $testDir;
 
-    /** @var \Micronative\Log\Monolog\MonologConfigFactory */
+    /** @var \Micronative\ObjectFactory\Log\Monolog\MonologConfigFactory */
     protected $configFactory;
 
-    /** @var \Micronative\Log\Monolog\MonologFactory */
+    /** @var \Micronative\ObjectFactory\Log\Monolog\MonologFactory */
     protected $monologFactory;
 
     /**
-     * @throws \Micronative\Log\Monolog\Exceptions\MonologConfigException
+     * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function setUp()
@@ -40,8 +40,8 @@ class MonologFactoryTest extends TestCase
     }
 
     /**
-     * @covers \Micronative\Log\Monolog\MonologFactory::create
-     * @throws \Micronative\Log\Monolog\Exceptions\MonologConfigException
+     * @covers \Micronative\ObjectFactory\Log\Monolog\MonologFactory::create
+     * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      */
     public function testCreate()
     {

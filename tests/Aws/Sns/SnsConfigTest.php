@@ -1,8 +1,8 @@
 <?php
 namespace Micronative\Test\Aws\Sns;
 
-use Micronative\Aws\Sns\SnsClientFactory;
-use Micronative\Aws\Sns\SnsClient;
+use Micronative\ObjectFactory\Aws\Sns\SnsClientFactory;
+use Micronative\ObjectFactory\Aws\Sns\SnsClient;
 use PHPUnit\Framework\TestCase;
 
 
@@ -17,7 +17,7 @@ class SnsConfigTest extends TestCase
     /** @var $snsClient SnsClient*/
     private $snsClient;
 
-    /** @var $config \Micronative\Aws\Sns\SnsConfig*/
+    /** @var $config \Micronative\ObjectFactory\Aws\Sns\SnsConfig*/
     private $config;
 
     public function setUp()
@@ -25,8 +25,8 @@ class SnsConfigTest extends TestCase
         parent::setUp();
 
         $this->connectionName = 'sns.ms.crm';
-        $this->testDir = dirname(dirname(__FILE__));
-        $this->snsConfigFilename = '/../../configs/sns.configs.json';
+        $this->testDir = dirname(dirname(dirname(__FILE__)));
+        $this->snsConfigFilename = '/configs/sns.configs.json';
         $this->snsConfigSettings = $this->testDir . $this->snsConfigFilename;
         $this->configContents =  json_decode(file_get_contents($this->snsConfigSettings), true);
         $this->configContents = $this->configContents[$this->connectionName];

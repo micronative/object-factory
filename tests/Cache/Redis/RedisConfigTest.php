@@ -2,7 +2,7 @@
 
 namespace Micronative\Test\Cache\Redis;
 
-use Micronative\Cache\Redis\RedisConfig;
+use Micronative\ObjectFactory\Cache\Redis\RedisConfig;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -32,11 +32,10 @@ class RedisConfigTest extends TestCase
     }
 
     /**
-     * Get access to private or protected properties
-     *
-     * @param object $class
+     * @param $class
      * @param string $prop
      * @return string
+     * @throws \ReflectionException
      */
     protected function getProtectedProperty($class, string $prop): string
     {

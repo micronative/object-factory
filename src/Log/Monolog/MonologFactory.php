@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Micronative\Log\Monolog;
+namespace Micronative\ObjectFactory\Log\Monolog;
 
 use Monolog\ErrorHandler;
 use Monolog\Handler\FingersCrossedHandler;
@@ -22,14 +22,14 @@ class MonologFactory
     /** @var string */
     protected $configFile;
 
-    /** @var \Micronative\Log\Monolog\MonologConfigFactory */
+    /** @var \Micronative\ObjectFactory\Log\Monolog\MonologConfigFactory */
     protected $configFactory;
 
     /**
      * MonologFactory constructor.
      *
      * @param string|null $configFile
-     * @throws \Micronative\Log\Monolog\Exceptions\MonologConfigException
+     * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(string $configFile = null)
@@ -41,12 +41,12 @@ class MonologFactory
     /**
      * @param string|null $configName
      * @return \Monolog\Logger
-     * @throws \Micronative\Log\Monolog\Exceptions\MonologConfigException
+     * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      * @throws \Exception
      */
     public function create(string $configName = null)
     {
-        /** @var \Micronative\Log\Monolog\MonologConfig $config */
+        /** @var \Micronative\ObjectFactory\Log\Monolog\MonologConfig $config */
         $config = $this->configFactory->get($configName);
 
         $logger = new Logger($config->getName());

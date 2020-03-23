@@ -1,8 +1,8 @@
 <?php
 
-namespace Micronative\Cache\Redis;
+namespace Micronative\ObjectFactory\Cache\Redis;
 
-use Micronative\Cache\Redis\Exceptions\RedisConfigException;
+use Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException;
 use ServiceSchema\Json\JsonReader;
 
 class RedisConfigFactory
@@ -20,7 +20,7 @@ class RedisConfigFactory
      * RedisConfigFactory constructor.
      *
      * @param string|null $configFile
-     * @throws \Micronative\Cache\Redis\Exceptions\RedisConfigException
+     * @throws \Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
@@ -30,7 +30,7 @@ class RedisConfigFactory
     }
 
     /**
-     * @throws \Micronative\Cache\Redis\Exceptions\RedisConfigException
+     * @throws \Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException
      * @throws \ServiceSchema\Json\Exception\JsonException
      */
     protected function loadConfigs(): void
@@ -44,8 +44,8 @@ class RedisConfigFactory
 
     /**
      * @param string|null $connection
-     * @return \Micronative\Cache\Redis\RedisConfig
-     * @throws \Micronative\Cache\Redis\Exceptions\RedisConfigException
+     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfig
+     * @throws \Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException
      */
     public function get(?string $connection = null): RedisConfig
     {
