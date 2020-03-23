@@ -6,17 +6,17 @@
 [![Coverage][ico-codecov]][link-codecov]
 
 [ico-license]: https://img.shields.io/github/license/nrk/predis.svg?style=flat-square
-[ico-version-stable]: https://img.shields.io/packagist/v/brightecapital/brighte-sdk.svg
-[ico-downloads-monthly]: https://img.shields.io/packagist/dm/brightecapital/brighte-sdk.svg
-[ico-travis]: https://travis-ci.com/brighte-capital/brighte-sdk.svg?branch=master
-[ico-codecov]: https://codecov.io/gh/brighte-capital/brighte-sdk/branch/master/graph/badge.svg
+[ico-version-stable]: https://img.shields.io/packagist/v/micronative/object-factory.svg
+[ico-downloads-monthly]: https://img.shields.io/packagist/dm/micronative/object-factory.svg
+[ico-travis]: https://travis-ci.com/micronative/object-factory.svg?branch=master
+[ico-codecov]: https://codecov.io/gh/micronative/object-factory/branch/master/graph/badge.svg
 
-[link-packagist]: https://packagist.org/packages/brightecapital/brighte-sdk
-[link-codecov]: https://codecov.io/gh/brighte-capital/brighte-sdk
-[link-travis]: https://travis-ci.com/brighte-capital/brighte-sdk
-[link-downloads]: https://packagist.org/packages/brightecapital/brighte-sdk/stats
+[link-packagist]: https://packagist.org/packages/micronative/object-factory
+[link-codecov]: https://codecov.io/gh/micronative/object-factory
+[link-travis]: https://travis-ci.com/micronative/object-factory
+[link-downloads]: https://packagist.org/packages/micronative/object-factory/stats
 
-### A collection of tools that allow to easily configure and create objects on the flight:
+### A collection of tools that allow to easily configure and create objects
 
 + (AWS) SqsClientFactory
 + (AWS) SnsClientFactory
