@@ -1,6 +1,6 @@
 <?php
 
-namespace Brighte\Exceptions;
+namespace Micronative\Exceptions;
 
 class BaseException extends \Exception
 {

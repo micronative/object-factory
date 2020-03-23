@@ -1,22 +1,22 @@
 {
-  "name": "brightecapital/brighte-sdk",
-  "description": "Brighte SDK",
+  "name": "micronative/object-factory",
+  "description": "Object Factory",
   "keywords": [
     "Brighte",
     "SDK"
   ],
-  "homepage": "https://github.com/brightecapital/",
+  "homepage": "https://github.com/micronative/",
   "license": "MIT",
   "authors": [
     {
       "name": "Ken Ngo",
-      "email": "ken.ngo@brighte.com.au"
+      "email": "ngodinhloc@gmail.com"
     }
   ],
   "require": {
     "php": "^7.0",
-    "brightecapital/sqs": "^1.0.0",
-    "brightecapital/sns": "^1.0.0",
+    "micronative/sqs": "^1.1.0",
+    "micronative/sns": "^1.1.0",
     "brightecapital/service-schema": "^1.2",
     "doctrine/orm": "^2.5",
     "sentry/sentry": "1.10.0",
@@ -30,12 +30,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Brighte\\": "src/"
+      "Micronative\\ObjectFactory\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Brighte\\Test\\": "tests/"
+      "Micronative\\ObjectFactory\\Test\\": "tests/"
     }
   },
   "minimum-stability": "dev"
