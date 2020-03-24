@@ -18,7 +18,7 @@ class RedisClientFactory
      *
      * @param string|null $configFile
      * @throws \Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
     {

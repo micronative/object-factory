@@ -22,7 +22,7 @@ class EntityManagerFactory
      *
      * @param string|null $configFile
      * @throws \Micronative\ObjectFactory\Database\Doctrine\Exceptions\DoctrineConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
     {

@@ -3,7 +3,7 @@
 namespace Micronative\ObjectFactory\Log\Monolog;
 
 use Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException;
-use ServiceSchema\Json\JsonReader;
+use Micronative\ServiceSchema\Json\JsonReader;
 
 class MonologConfigFactory
 {
@@ -19,7 +19,7 @@ class MonologConfigFactory
      *
      * @param string|null $configFile
      * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
     {
@@ -29,7 +29,7 @@ class MonologConfigFactory
 
     /**
      * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     protected function loadConfigs(): void
     {

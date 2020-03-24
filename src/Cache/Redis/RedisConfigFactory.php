@@ -3,7 +3,7 @@
 namespace Micronative\ObjectFactory\Cache\Redis;
 
 use Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException;
-use ServiceSchema\Json\JsonReader;
+use Micronative\ServiceSchema\Json\JsonReader;
 
 class RedisConfigFactory
 {
@@ -21,7 +21,7 @@ class RedisConfigFactory
      *
      * @param string|null $configFile
      * @throws \Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
     {
@@ -31,7 +31,7 @@ class RedisConfigFactory
 
     /**
      * @throws \Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     protected function loadConfigs(): void
     {

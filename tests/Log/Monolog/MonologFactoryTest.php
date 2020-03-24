@@ -20,7 +20,7 @@ class MonologFactoryTest extends TestCase
 
     /**
      * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     public function setUp()
     {

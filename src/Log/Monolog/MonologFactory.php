@@ -30,7 +30,7 @@ class MonologFactory
      *
      * @param string|null $configFile
      * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(string $configFile = null)
     {

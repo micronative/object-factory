@@ -16,7 +16,7 @@ class SqsClientFactory
      *
      * @param string|null $configFile
      * @throws \Micronative\ObjectFactory\Aws\Sqs\Exceptions\SqsConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
     {

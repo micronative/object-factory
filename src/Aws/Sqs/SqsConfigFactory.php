@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace Micronative\ObjectFactory\Aws\Sqs;
 
 use Micronative\ObjectFactory\Aws\Sqs\Exceptions\SqsConfigException;
-use ServiceSchema\Json\JsonReader;
+use Micronative\ServiceSchema\Json\JsonReader;
 
 class SqsConfigFactory
 {
@@ -21,7 +21,7 @@ class SqsConfigFactory
      *
      * @param string|null $configFile
      * @throws \Micronative\ObjectFactory\Aws\Sqs\Exceptions\SqsConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     public function __construct(?string $configFile = null)
     {
@@ -31,7 +31,7 @@ class SqsConfigFactory
 
     /**
      * @throws \Micronative\ObjectFactory\Aws\Sqs\Exceptions\SqsConfigException
-     * @throws \ServiceSchema\Json\Exception\JsonException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
      */
     protected function loadConfigs(): void
     {
