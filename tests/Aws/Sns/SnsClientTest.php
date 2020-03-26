@@ -21,14 +21,10 @@ class SnsClientTest extends TestCase
     /** @var $snsClient SnsClient */
     private $snsClient;
 
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
-     */
+    /** @var \PHPUnit\Framework\MockObject\MockObject */
     private $snsProducerMock;
 
-    /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
-     */
+    /** @var \PHPUnit\Framework\MockObject\MockObject */
     private $snsContextMock;
 
     public function setUp()
