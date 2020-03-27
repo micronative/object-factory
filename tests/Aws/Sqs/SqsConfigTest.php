@@ -32,19 +32,19 @@ class SqsConfigTest extends TestCase
     }
 
     /**
-     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::getSecret
-     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::getRegion
-     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::getConnectionName
-     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::getKey
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::getSecret
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::getRegion
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::getConnectionName
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::getKey
      * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::getQueue
      * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::isFifo
-     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::setSecret
-     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::setRegion
-     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::setConnectionName
-     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::setKey
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::setSecret
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::setRegion
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::setConnectionName
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::setKey
      * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::setQueue
      * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::setFifo
-     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::toArray
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::toArray
      */
     public function testSqsConfig()
     {
