@@ -1,63 +1,67 @@
 <?php
-namespace Micronative\Test\Aws\Sqs;
-use Micronative\ObjectFactory\Aws\Sqs\SqsClient;
-use Micronative\ObjectFactory\Aws\Sqs\SqsClientFactory;
-use PHPUnit\Framework\TestCase;
 
+namespace Micronative\Test\Aws\Sqs;
+
+use Micronative\ObjectFactory\Aws\Sqs\SqsConfig;
+use PHPUnit\Framework\TestCase;
 
 class SqsConfigTest extends TestCase
 {
-    private $testDir;
-    private $sqsConfig;
-    private $connectionName;
+    /** @var string */
+    protected $connectionName;
 
-    /** @var $sqsClientFactory SqsClientFactory*/
-    private $sqsClientFactory;
+    /** @var array */
+    protected $configArray;
 
-    /** @var $sqsClient SqsClient*/
-    private $sqsClient;
-
-    /** @var $config \Micronative\ObjectFactory\Aws\Sqs\SqsConfig*/
-    private $config;
+    /** @var \Micronative\ObjectFactory\Aws\Sqs\SqsConfig */
+    protected $config;
 
     public function setUp()
     {
         parent::setUp();
 
         $this->connectionName = 'sqs.ms.crm';
-        $this->testDir = dirname(dirname(dirname(__FILE__)));
-        $this->sqsConfigFilename = '/configs/sqs.configs.json';
-        $this->sqsConfigSettings = $this->testDir . $this->sqsConfigFilename;
-        $this->configContents =  json_decode(file_get_contents($this->sqsConfigSettings), true);
-        $this->configContents = $this->configContents[$this->connectionName];
-        $this->sqsClientFactory = new SqsClientFactory($this->sqsConfigSettings);
-        $this->sqsClient = $this->sqsClientFactory->create($this->connectionName);
-        $this->config = $this->sqsClient->getConfig();
+        $this->configArray = [
+            'key' => 'sqsKey',
+            'secret' => 'sqsSecret',
+            'region' => 'sqsRegion',
+            'queue' => 'sqsQueue',
+            'fifo' => false,
+        ];
+        $this->config = new SqsConfig($this->connectionName, $this->configArray);
     }
 
-    public function testConfig()
+    /**
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::getSecret
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::getRegion
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::getConnectionName
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::getKey
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::getQueue
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::isFifo
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::setSecret
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::setRegion
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::setConnectionName
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::setKey
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::setQueue
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SqsConfig::setFifo
+     * @covers \Micronative\ObjectFactory\Aws\Sqs\SnsConfig::toArray
+     */
+    public function testSqsConfig()
     {
-        $result = $this->config->getQueue();
-        $this->config->setQueue($result);
-        $this->assertSame($this->config->getQueue(), $this->configContents['queue']);
+        $this->config->setConnectionName($this->connectionName)
+            ->setKey($this->configArray['key'])
+            ->setRegion($this->configArray['region'])
+            ->setSecret($this->configArray['secret'])
+            ->setQueue($this->configArray['queue'])
+            ->setFifo($this->configArray['fifo']);
 
-        $result = $this->config->getRegion();
-        $this->config->setRegion($result);
-        $this->assertSame($this->config->getRegion(), $this->configContents['region']);
+        $this->assertEquals($this->connectionName, $this->config->getConnectionName());
+        $this->assertEquals($this->configArray['key'], $this->config->getKey());
+        $this->assertEquals($this->configArray['region'], $this->config->getRegion());
+        $this->assertEquals($this->configArray['secret'], $this->config->getSecret());
+        $this->assertEquals($this->configArray['queue'], $this->config->getQueue());
+        $this->assertEquals($this->configArray['fifo'], $this->config->isFifo());
+        $this->assertEquals($this->configArray, $this->config->toArray());
 
-        $result = $this->config->getKey();
-        $this->config->setKey($result);
-        $this->assertSame($this->config->getKey(), $this->configContents['key']);
-
-        $result = $this->config->getSecret();
-        $this->config->setSecret($result);
-        $this->assertSame($this->config->getSecret(), $this->configContents['secret']);
-
-        $result = $this->config->getConnectionName();
-        $this->config->setConnectionName($result);
-        $this->assertSame($this->config->getConnectionName(), $this->connectionName);
-
-        $result = $this->config->setFifo(false);
-        $this  ->assertFalse($result->isFifo());
     }
 }

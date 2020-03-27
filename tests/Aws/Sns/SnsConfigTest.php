@@ -8,9 +8,26 @@ use PHPUnit\Framework\TestCase;
 
 class SnsConfigTest extends TestCase
 {
+    /** @var string */
+    protected $connectionName;
+
+    /** @var array */
+    protected $configArray;
+
+    /** @var \Micronative\ObjectFactory\Aws\Sns\SnsConfig */
+    protected $config;
+
     public function setUp()
     {
         parent::setUp();
+
+        $this->connectionName = 'sns.ms.crm';
+        $this->configArray = [
+            'key' => 'configKey',
+            'secret' => 'configSecret',
+            'region' => 'configRegion'
+        ];
+        $this->config = new SnsConfig($this->connectionName, $this->configArray);
     }
 
     /**
@@ -24,25 +41,18 @@ class SnsConfigTest extends TestCase
      * @covers \Micronative\ObjectFactory\Aws\Sns\SnsConfig::setKey
      * @covers \Micronative\ObjectFactory\Aws\Sns\SnsConfig::toArray
      */
-    public function testConfig()
+    public function testSnsConfig()
     {
-        $connectionName = 'sns.ms.crm';
-        $configArray = [
-            'key' => 'configKey',
-            'secret' => 'configSecret',
-            'region' => 'configRegion'
-        ];
-        $config = new SnsConfig($connectionName, $configArray);
-        $config->setConnectionName($connectionName)
-            ->setKey($configArray['key'])
-            ->setRegion($configArray['region'])
-            ->setSecret($configArray['secret']);
+        $this->config->setConnectionName($this->connectionName)
+            ->setKey($this->configArray['key'])
+            ->setRegion($this->configArray['region'])
+            ->setSecret($this->configArray['secret']);
 
-        $this->assertEquals($connectionName, $config->getConnectionName());
-        $this->assertEquals($configArray['key'], $config->getKey());
-        $this->assertEquals($configArray['region'], $config->getRegion());
-        $this->assertEquals($configArray['secret'], $config->getSecret());
-        $this->assertEquals($configArray, $config->toArray());
+        $this->assertEquals($this->connectionName, $this->config->getConnectionName());
+        $this->assertEquals($this->configArray['key'], $this->config->getKey());
+        $this->assertEquals($this->configArray['region'], $this->config->getRegion());
+        $this->assertEquals($this->configArray['secret'], $this->config->getSecret());
+        $this->assertEquals($this->configArray, $this->config->toArray());
 
     }
 }

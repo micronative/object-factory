@@ -5,6 +5,7 @@ namespace Micronative\Test\Aws\Sns;
 use Micronative\ObjectFactory\Aws\Sns\SnsClient;
 use Micronative\ObjectFactory\Aws\Sns\SnsClientFactory;
 use Micronative\ObjectFactory\Aws\Sns\SnsConfig;
+use Micronative\ServiceSchema\Json\JsonReader;
 use Micronative\Sns\SnsConnectionFactory;
 use Micronative\Sns\SnsContext;
 use Micronative\Sns\SnsProducer;
@@ -12,45 +13,49 @@ use PHPUnit\Framework\TestCase;
 
 class SnsClientTest extends TestCase
 {
-    private $testDir;
-    private $snsConfig;
+    /** @var string */
+    protected $testDir;
 
-    /** @var $snsClientFactory SnsClientFactory */
-    private $snsClientFactory;
+    /** @var string */
+    protected $configFile;
 
     /** @var $snsClient SnsClient */
-    private $snsClient;
+    protected $snsClient;
 
     /** @var \PHPUnit\Framework\MockObject\MockObject */
-    private $snsProducerMock;
+    protected $snsProducerMock;
 
     /** @var \PHPUnit\Framework\MockObject\MockObject */
-    private $snsContextMock;
+    protected $snsContextMock;
 
+    /**
+     * @throws \Micronative\ObjectFactory\Aws\Sns\Exceptions\SnsConfigException
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
+     */
     public function setUp()
     {
         parent::setUp();
 
-        $this->sampleMessage = 'Sample Message';
         $this->testDir = dirname(dirname(dirname(__FILE__)));
-        $this->snsConfig = '/configs/sns.configs.json';
-        $this->snsConfigSettings = $this->testDir . $this->snsConfig;
-        $this->putEnvVariables();
+        $this->configFile = $this->testDir .'/configs/sns.configs.json';
+        $this->putEnvVariables($this->configFile);
+        $snsClientFactory = new SnsClientFactory($this->configFile );
+        $this->snsClient = $snsClientFactory->create('sns.ms.crm');
 
         $this->snsProducerMock = $this->createMock(SnsProducer::class);
         $this->snsProducerMock->method('send')->willReturn('MessageId');
-        $this->snsClientFactory = new SnsClientFactory($this->snsConfigSettings);
-        $this->snsClient = $this->snsClientFactory->create('sns.ms.crm');
-
-        $this->snsClientMock = $this->createMock(get_class($this->snsClient));
     }
 
-    public function putEnvVariables()
+    /**
+     * @param $configFile
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
+     */
+    protected function putEnvVariables($configFile)
     {
-        $this->configContents = json_decode(file_get_contents($this->snsConfigSettings));
+        $configArrays = JsonReader::decode(JsonReader::read($configFile));
 
-        foreach ($this->configContents as $key => $para) {
-            foreach ($para as $key => $value) {
+        foreach ($configArrays as $configArray) {
+            foreach ($configArray as $key => $value) {
                 putenv((string)$value . '=' . $value);
             }
         }
@@ -74,10 +79,13 @@ class SnsClientTest extends TestCase
         $this->assertEquals($config['region'], $this->snsClient->getConfig()->getRegion());
     }
 
+    /**
+     * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
+     */
     public function testConfig()
     {
         $snsClientConfig = $this->snsClient->getConfig()->toArray();
-        $configContents = json_decode(file_get_contents($this->snsConfigSettings), true);
+        $configContents = JsonReader::decode(JsonReader::read($this->configFile), true);
         $configContents = $configContents['sns.ms.crm'];
 
         foreach ($configContents as $key => $confSetting) {
