@@ -8,16 +8,16 @@ use PHPUnit\Framework\TestCase;
 
 class MonologFactoryTest extends TestCase
 {
-
+    
     /** @var string */
     protected $testDir;
-
+    
     /** @var \Micronative\ObjectFactory\Log\Monolog\MonologConfigFactory */
     protected $configFactory;
-
+    
     /** @var \Micronative\ObjectFactory\Log\Monolog\MonologFactory */
     protected $monologFactory;
-
+    
     /**
      * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
@@ -34,11 +34,11 @@ class MonologFactoryTest extends TestCase
         putenv('SENTRY_HOST=host');
         putenv('SENTRY_PROJECT_ID=project_id');
         putenv('APP_ENV=app_env');
-
-        $this->testDir = dirname(dirname(dirname(__FILE__)));
+        
+        $this->testDir        = dirname(dirname(dirname(__FILE__)));
         $this->monologFactory = new MonologFactory($this->testDir . '/configs/monolog.configs.json');
     }
-
+    
     /**
      * @covers \Micronative\ObjectFactory\Log\Monolog\MonologFactory::create
      * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException

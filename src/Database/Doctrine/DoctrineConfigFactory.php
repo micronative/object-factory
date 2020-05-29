@@ -7,15 +7,15 @@ use Micronative\ServiceSchema\Json\JsonReader;
 
 class DoctrineConfigFactory
 {
-
+    
     /** @var string|null */
     protected $configFile;
-
+    
     /** @var \stdClass */
     protected $configs;
-
+    
     public const DOCTRINE_CONNECTION_CRM = 'doctrine.ms.crm';
-
+    
     /**
      * DoctrineConfigFactory constructor.
      *
@@ -28,7 +28,7 @@ class DoctrineConfigFactory
         $this->configFile = $configFile;
         $this->loadConfigs();
     }
-
+    
     /**
      * @throws \Micronative\ObjectFactory\Database\Doctrine\Exceptions\DoctrineConfigException
      * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
@@ -38,10 +38,10 @@ class DoctrineConfigFactory
         if (!is_file($this->configFile)) {
             throw new DoctrineConfigException(DoctrineConfigException::INVALID_CONFIG_FILE . $this->configFile);
         }
-
+        
         $this->configs = JsonReader::decode(JsonReader::read($this->configFile));
     }
-
+    
     /**
      * @param string|null $connectionName
      * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig
@@ -52,14 +52,14 @@ class DoctrineConfigFactory
         if (!isset($this->configs->$connectionName)) {
             throw new DoctrineConfigException(DoctrineConfigException::INVALID_CONNECTION_NAME . $connectionName);
         }
-
+        
         $configObject = $this->configs->$connectionName;
-        $configArray = [];
-
+        $configArray  = [];
+        
         foreach ($configObject as $key => $para) {
             $configArray[$key] = getenv($para);
         }
-
+        
         return new DoctrineConfig($connectionName, $configArray);
     }
 }

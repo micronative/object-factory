@@ -10,36 +10,36 @@ use Micronative\Sqs\SqsMessage;
 
 class SqsClient implements SqsClientInterface
 {
-    /** @var \Micronative\ObjectFactory\Aws\Sqs\SqsConfig */
+    /** @var \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface */
     protected $config;
-
+    
     /** @var \Micronative\Sqs\SqsConnectionFactory */
     protected $factory;
-
+    
     /** @var \Micronative\Sqs\SqsContext */
     protected $context;
-
+    
     /** @var \Micronative\Sqs\SqsDestination */
     protected $queue;
-
+    
     /** @var \Micronative\Sqs\SqsConsumer */
     protected $consumer;
-
+    
     /**
      * SqsClient constructor.
      *
-     * @param \Micronative\ObjectFactory\Aws\Sqs\SqsConfig|null $config config
+     * @param \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface|null $config config
      */
-    public function __construct(SqsConfig $config = null)
+    public function __construct(SqsConfigInterface $config = null)
     {
-        $this->config = $config;
+        $this->config  = $config;
         $this->factory = new SqsConnectionFactory($this->config->toArray());
         $this->context = $this->factory->createContext();
-        $this->queue = $this->context->createQueue($this->config->getQueue());
-        $this->queue->setFifoQueue($this->config ->isFifo());
+        $this->queue   = $this->context->createQueue($this->config->getQueue());
+        $this->queue->setFifoQueue($this->config->isFifo());
         $this->consumer = $this->context->createConsumer($this->queue);
     }
-
+    
     /**
      * @param string $body
      * @param string $groupId
@@ -53,12 +53,12 @@ class SqsClient implements SqsClientInterface
     {
         $message = $this->context->createMessage($body, $properties);
         $message->setMessageGroupId($groupId);
-
+        
         $this->context->createProducer()->send($this->queue, $message);
-
+        
         return $message;
     }
-
+    
     /**
      * @param int $timeOut millisecond
      * @return \Micronative\Sqs\SqsMessage|null
@@ -67,7 +67,7 @@ class SqsClient implements SqsClientInterface
     {
         return $this->consumer->receive($timeOut);
     }
-
+    
     /**
      * @param \Micronative\Sqs\SqsMessage|null $message
      * @return mixed|void
@@ -76,31 +76,31 @@ class SqsClient implements SqsClientInterface
     {
         $this->consumer->acknowledge($message);
     }
-
+    
     public function reject(SqsMessage $message = null, bool $requeue = false)
     {
         $this->consumer->reject($message, $requeue);
     }
-
+    
     /**
-     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
-*/
-    public function getConfig(): SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface
+     */
+    public function getConfig(): SqsConfigInterface
     {
         return $this->config;
     }
-
+    
     /**
-     * @param \Micronative\ObjectFactory\Aws\Sqs\SqsConfig $config
+     * @param \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface $config
      * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
      */
-    public function setConfig(SqsConfig $config): SqsClient
+    public function setConfig(SqsConfigInterface $config): SqsClient
     {
         $this->config = $config;
-
+        
         return $this;
     }
-
+    
     /**
      * @return \Micronative\Sqs\SqsConnectionFactory
      */
@@ -108,7 +108,7 @@ class SqsClient implements SqsClientInterface
     {
         return $this->factory;
     }
-
+    
     /**
      * @param \Micronative\Sqs\SqsConnectionFactory $factory
      * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
@@ -116,10 +116,10 @@ class SqsClient implements SqsClientInterface
     public function setFactory(SqsConnectionFactory $factory): SqsClient
     {
         $this->factory = $factory;
-
+        
         return $this;
     }
-
+    
     /**
      * @return \Micronative\Sqs\SqsContext
      */
@@ -127,7 +127,7 @@ class SqsClient implements SqsClientInterface
     {
         return $this->context;
     }
-
+    
     /**
      * @param \Micronative\Sqs\SqsContext $context
      * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
@@ -135,10 +135,10 @@ class SqsClient implements SqsClientInterface
     public function setContext(SqsContext $context): SqsClient
     {
         $this->context = $context;
-
+        
         return $this;
     }
-
+    
     /**
      * @return \Micronative\Sqs\SqsDestination
      */
@@ -146,7 +146,7 @@ class SqsClient implements SqsClientInterface
     {
         return $this->queue;
     }
-
+    
     /**
      * @param \Micronative\Sqs\SqsDestination $queue
      * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
@@ -154,10 +154,10 @@ class SqsClient implements SqsClientInterface
     public function setQueue(SqsDestination $queue): SqsClient
     {
         $this->queue = $queue;
-
+        
         return $this;
     }
-
+    
     /**
      * @return \Micronative\Sqs\SqsConsumer
      */
@@ -165,7 +165,7 @@ class SqsClient implements SqsClientInterface
     {
         return $this->consumer;
     }
-
+    
     /**
      * @param \Micronative\Sqs\SqsConsumer $consumer
      * @return \Micronative\ObjectFactory\Aws\Sqs\SqsClient
@@ -173,8 +173,8 @@ class SqsClient implements SqsClientInterface
     public function setConsumer(SqsConsumer $consumer): SqsClient
     {
         $this->consumer = $consumer;
-
+        
         return $this;
     }
-
+    
 }

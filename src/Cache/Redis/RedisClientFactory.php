@@ -3,16 +3,17 @@
 namespace Micronative\ObjectFactory\Cache\Redis;
 
 use Predis\Client;
+use Predis\ClientInterface;
 
 class RedisClientFactory
 {
-
+    
     /** @var string */
     protected $configFile;
-
+    
     /** @var \Micronative\ObjectFactory\Cache\Redis\RedisConfigFactory */
     protected $configFactory;
-
+    
     /**
      * RedisClientFactory constructor.
      *
@@ -22,21 +23,21 @@ class RedisClientFactory
      */
     public function __construct(?string $configFile = null)
     {
-        $this->configFile = $configFile;
+        $this->configFile    = $configFile;
         $this->configFactory = new RedisConfigFactory($this->configFile);
     }
-
+    
     /**
      * @param string|null $connection
-     * @return \Predis\Client
+     * @return \Predis\ClientInterface
      * @throws \Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException
      */
-    public function create(?string $connection = null): Client
+    public function create(?string $connection = null): ClientInterface
     {
-        /** @var \Micronative\ObjectFactory\Cache\Redis\RedisConfig $config */
+        /** @var \Micronative\ObjectFactory\Cache\Redis\RedisConfigInterface $config */
         $config = $this->configFactory->get($connection);
-
+        
         return new Client($config->toArray());
     }
-
+    
 }

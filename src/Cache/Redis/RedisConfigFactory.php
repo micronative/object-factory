@@ -7,15 +7,15 @@ use Micronative\ServiceSchema\Json\JsonReader;
 
 class RedisConfigFactory
 {
-
+    
     /** @var string|null */
     protected $configFile;
-
+    
     /** @var \stdClass */
     protected $configs;
-
+    
     public const REDIS_CONNECTION_CRM = 'redis.ms.crm';
-
+    
     /**
      * RedisConfigFactory constructor.
      *
@@ -28,7 +28,7 @@ class RedisConfigFactory
         $this->configFile = $configFile;
         $this->loadConfigs();
     }
-
+    
     /**
      * @throws \Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException
      * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
@@ -38,29 +38,29 @@ class RedisConfigFactory
         if (!is_file($this->configFile)) {
             throw new RedisConfigException(RedisConfigException::INVALID_CONFIG_FILE . $this->configFile);
         }
-
+        
         $this->configs = JsonReader::decode(JsonReader::read($this->configFile));
     }
-
+    
     /**
      * @param string|null $connection
-     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfig
+     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfigInterface
      * @throws \Micronative\ObjectFactory\Cache\Redis\Exceptions\RedisConfigException
      */
-    public function get(?string $connection = null): RedisConfig
+    public function get(?string $connection = null): RedisConfigInterface
     {
         if (!isset($this->configs->$connection)) {
             throw new RedisConfigException(RedisConfigException::INVALID_CONNECTION_NAME . $connection);
         }
-
+        
         $configObject = $this->configs->$connection;
-        $configArray = [];
-
+        $configArray  = [];
+        
         foreach ($configObject as $key => $para) {
             $configArray[$key] = getenv($para);
         }
-
+        
         return new RedisConfig($configArray);
     }
-
+    
 }

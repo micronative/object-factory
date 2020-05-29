@@ -7,13 +7,13 @@ use Micronative\ServiceSchema\Json\JsonReader;
 
 class MonologConfigFactory
 {
-
+    
     /** @var string|null */
     protected $configFile;
-
+    
     /** @var \stdClass */
     protected $configs;
-
+    
     /**
      * MonologConfigFactory constructor.
      *
@@ -26,7 +26,7 @@ class MonologConfigFactory
         $this->configFile = $configFile;
         $this->loadConfigs();
     }
-
+    
     /**
      * @throws \Micronative\ObjectFactory\Log\Monolog\Exceptions\MonologConfigException
      * @throws \Micronative\ServiceSchema\Json\Exception\JsonException
@@ -36,10 +36,10 @@ class MonologConfigFactory
         if (!is_file($this->configFile)) {
             throw new MonologConfigException(MonologConfigException::INVALID_CONFIG_FILE . $this->configFile);
         }
-
+        
         $this->configs = JsonReader::decode(JsonReader::read($this->configFile));
     }
-
+    
     /**
      * @param string|null $configName
      * @return \Micronative\ObjectFactory\Log\Monolog\MonologConfig
@@ -50,14 +50,14 @@ class MonologConfigFactory
         if (!isset($this->configs->$configName)) {
             throw new MonologConfigException(MonologConfigException::INVALID_CONNECTION_NAME . $configName);
         }
-
+        
         $configObject = $this->configs->$configName;
-        $configArray = [];
-
+        $configArray  = [];
+        
         foreach ($configObject as $key => $para) {
             $configArray[$key] = getenv($para);
         }
-
+        
         return new MonologConfig($configName, $configArray);
     }
 }

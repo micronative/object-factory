@@ -1,24 +1,24 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Micronative\ObjectFactory\Aws\Sns;
 
-class SnsConfig
+class SnsConfig implements SnsConfigInterface
 {
-
+    
     /** @var string */
     protected $connectionName;
-
+    
     /** @var string $key aws key */
     protected $key;
-
+    
     /** @var string $secret aws secret */
     protected $secret;
-
+    
     /** @var string $region aws region */
     protected $region;
-
+    
     /**
      * SqsConfig constructor.
      *
@@ -28,23 +28,23 @@ class SnsConfig
     public function __construct(?string $connectionName = null, ?array $config = null)
     {
         $this->connectionName = $connectionName;
-        $this->key = $config['key'] ?? null;
-        $this->secret = $config['secret'] ?? null;
-        $this->region = $config['region'] ?? null;
+        $this->key            = $config['key'] ?? null;
+        $this->secret         = $config['secret'] ?? null;
+        $this->region         = $config['region'] ?? null;
     }
-
+    
     /**
      * @return string[]
      */
     public function toArray(): array
     {
         return [
-            'key' => $this->key,
+            'key'    => $this->key,
             'secret' => $this->secret,
-            'region' => $this->region
+            'region' => $this->region,
         ];
     }
-
+    
     /**
      * @return string
      */
@@ -52,18 +52,18 @@ class SnsConfig
     {
         return $this->connectionName;
     }
-
+    
     /**
      * @param string $connectionName
-     * @return SnsConfig
+     * @return SnsConfigInterface
      */
-    public function setConnectionName(string $connectionName): SnsConfig
+    public function setConnectionName(string $connectionName): SnsConfigInterface
     {
         $this->connectionName = $connectionName;
-
+        
         return $this;
     }
-
+    
     /**
      * @return string
      */
@@ -71,18 +71,18 @@ class SnsConfig
     {
         return $this->key;
     }
-
+    
     /**
      * @param string $key
-     * @return SnsConfig
+     * @return SnsConfigInterface
      */
-    public function setKey(string $key): SnsConfig
+    public function setKey(string $key): SnsConfigInterface
     {
         $this->key = $key;
-
+        
         return $this;
     }
-
+    
     /**
      * @return string
      */
@@ -90,18 +90,18 @@ class SnsConfig
     {
         return $this->secret;
     }
-
+    
     /**
      * @param string $secret
-     * @return SnsConfig
+     * @return SnsConfigInterface
      */
-    public function setSecret(string $secret): SnsConfig
+    public function setSecret(string $secret): SnsConfigInterface
     {
         $this->secret = $secret;
-
+        
         return $this;
     }
-
+    
     /**
      * @return string
      */
@@ -109,15 +109,15 @@ class SnsConfig
     {
         return $this->region;
     }
-
+    
     /**
      * @param string $region
-     * @return SnsConfig
+     * @return SnsConfigInterface
      */
-    public function setRegion(string $region): SnsConfig
+    public function setRegion(string $region): SnsConfigInterface
     {
         $this->region = $region;
-
+        
         return $this;
     }
 }

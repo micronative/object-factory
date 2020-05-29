@@ -1,8 +1,8 @@
 <?php
+
 namespace Micronative\Test\Aws\Sqs;
 use Micronative\ObjectFactory\Database\Doctrine\EntityManagerFactory;
 use PHPUnit\Framework\TestCase;
-
 
 class SqsEntityManagerTest extends TestCase
 {
@@ -11,22 +11,22 @@ class SqsEntityManagerTest extends TestCase
     private $connectionName;
     private $sqsConfigFilename;
     private $sqsConfigSettings;
-
-    /** @var $config EntityManagerFactory*/
+    
+    /** @var $config EntityManagerFactory */
     private $config;
-
+    
     public function setUp()
     {
         parent::setUp();
-        $this->connectionName = 'doctrine.ms.crm';
-        $this->testDir = dirname(dirname(dirname(__FILE__)));
+        $this->connectionName    = 'doctrine.ms.crm';
+        $this->testDir           = dirname(dirname(dirname(__FILE__)));
         $this->sqsConfigFilename = '/configs/doctrine.configs.json';
         $this->sqsConfigSettings = $this->testDir . $this->sqsConfigFilename;
-        $this->configContents =  json_decode(file_get_contents($this->sqsConfigSettings), true);
-        $this->configContents = $this->configContents[$this->connectionName];
-        $this->config =  new EntityManagerFactory($this->sqsConfigSettings);
+        $this->configContents    = json_decode(file_get_contents($this->sqsConfigSettings), true);
+        $this->configContents    = $this->configContents[$this->connectionName];
+        $this->config            = new EntityManagerFactory($this->sqsConfigSettings);
     }
-
+    
     public function testConfig()
     {
         $this->assertSame($this->config->getConfigFile(), $this->sqsConfigSettings);

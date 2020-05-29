@@ -10,13 +10,13 @@ use Doctrine\ORM\Tools\Setup;
 
 class EntityManagerFactory
 {
-
+    
     /** @var string */
     protected $configFile;
-
+    
     /** @var \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfigFactory */
     protected $configFactory;
-
+    
     /**
      * EntityManagerFactory constructor.
      *
@@ -26,10 +26,10 @@ class EntityManagerFactory
      */
     public function __construct(?string $configFile = null)
     {
-        $this->configFile = $configFile;
+        $this->configFile    = $configFile;
         $this->configFactory = new DoctrineConfigFactory($configFile);
     }
-
+    
     /**
      * @param string|null $connectionName
      * @return \Doctrine\ORM\EntityManager
@@ -39,29 +39,30 @@ class EntityManagerFactory
      */
     public function create(?string $connectionName = null): EntityManager
     {
-        $config = $this->configFactory->get($connectionName);
-        $connection = $config->getConnection();
+        $config        = $this->configFactory->get($connectionName);
+        $connection    = $config->getConnection();
         $configuration = Setup::createAnnotationMetadataConfiguration($config->getMetadataDirs(), $config->isDevMode());
-        $reader = new AnnotationReader;
-
+        $reader        = new AnnotationReader;
+        
         if ($config->getIgnoredNamespaces()) {
-            foreach ($config->getIgnoredNamespaces() as $namespace)
+            foreach ($config->getIgnoredNamespaces() as $namespace) {
                 $reader->addGlobalIgnoredNamespace($namespace);
+            }
         }
-
+        
         $configuration->setMetadataDriverImpl(
             new AnnotationDriver($reader, $config->getMetadataDirs())
         );
-
+        
         if ($config->getCacheDir()) {
             $configuration->setMetadataCacheImpl(
                 new FilesystemCache($config->getCacheDir())
             );
         }
-
+        
         return EntityManager::create($connection, $configuration);
     }
-
+    
     /**
      * @return string
      */
@@ -69,7 +70,7 @@ class EntityManagerFactory
     {
         return $this->configFile;
     }
-
+    
     /**
      * @param string $configFile
      * @return \Micronative\ObjectFactory\Database\Doctrine\EntityManagerFactory
@@ -77,10 +78,10 @@ class EntityManagerFactory
     public function setConfigFile(string $configFile): EntityManagerFactory
     {
         $this->configFile = $configFile;
-
+        
         return $this;
     }
-
+    
     /**
      * @return \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfigFactory
      */
@@ -88,7 +89,7 @@ class EntityManagerFactory
     {
         return $this->configFactory;
     }
-
+    
     /**
      * @param \Micronative\ObjectFactory\Database\Doctrine\DoctrineConfigFactory $configFactory
      * @return \Micronative\ObjectFactory\Database\Doctrine\EntityManagerFactory
@@ -96,8 +97,8 @@ class EntityManagerFactory
     public function setConfigFactory(DoctrineConfigFactory $configFactory): EntityManagerFactory
     {
         $this->configFactory = $configFactory;
-
+        
         return $this;
     }
-
+    
 }

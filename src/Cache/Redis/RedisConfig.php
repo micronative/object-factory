@@ -2,18 +2,18 @@
 
 namespace Micronative\ObjectFactory\Cache\Redis;
 
-class RedisConfig
+class RedisConfig implements RedisConfigInterface
 {
-
+    
     /** @var string|null */
     protected $scheme;
-
+    
     /** @var string|null */
     protected $host;
-
+    
     /** @var int|null */
     protected $port;
-
+    
     /**
      * RedisConfig constructor.
      *
@@ -22,10 +22,10 @@ class RedisConfig
     public function __construct(?array $config = null)
     {
         $this->scheme = $config['scheme'] ?? null;
-        $this->host = $config['host'] ?? null;
-        $this->port = $config['port'] ?? null;
+        $this->host   = $config['host'] ?? null;
+        $this->port   = $config['port'] ?? null;
     }
-
+    
     /**
      * @return string[]
      */
@@ -33,11 +33,11 @@ class RedisConfig
     {
         return [
             'scheme' => $this->scheme,
-            'host' => $this->host,
-            'port' => $this->port,
+            'host'   => $this->host,
+            'port'   => $this->port,
         ];
     }
-
+    
     /**
      * @return string|null
      */
@@ -45,18 +45,18 @@ class RedisConfig
     {
         return $this->scheme;
     }
-
+    
     /**
      * @param string|null $scheme
-     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfig
+     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfigInterface
      */
-    public function setScheme(?string $scheme = null): RedisConfig
+    public function setScheme(?string $scheme = null): RedisConfigInterface
     {
         $this->scheme = $scheme;
-
+        
         return $this;
     }
-
+    
     /**
      * @return string|null
      */
@@ -64,18 +64,18 @@ class RedisConfig
     {
         return $this->host;
     }
-
+    
     /**
      * @param string|null $host
-     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfig
+     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfigInterface
      */
-    public function setHost(?string $host = null): RedisConfig
+    public function setHost(?string $host = null): RedisConfigInterface
     {
         $this->host = $host;
-
+        
         return $this;
     }
-
+    
     /**
      * @return int|null
      */
@@ -83,16 +83,16 @@ class RedisConfig
     {
         return $this->port;
     }
-
+    
     /**
      * @param int|null $port
-     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfig
+     * @return \Micronative\ObjectFactory\Cache\Redis\RedisConfigInterface
      */
-    public function setPort(?int $port = null): RedisConfig
+    public function setPort(?int $port = null): RedisConfigInterface
     {
         $this->port = $port;
-
+        
         return $this;
     }
-
+    
 }

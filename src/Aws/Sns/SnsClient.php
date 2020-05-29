@@ -7,28 +7,28 @@ use Micronative\Sns\SnsContext;
 
 class SnsClient implements SnsClientInterface
 {
-
-    /** @var \Micronative\ObjectFactory\Aws\Sns\SnsConfig */
+    
+    /** @var \Micronative\ObjectFactory\Aws\Sns\SnsConfigInterface */
     protected $config;
-
+    
     /** @var \Micronative\Sns\SnsConnectionFactory */
     protected $factory;
-
+    
     /** @var \Micronative\Sns\SnsContext */
     protected $context;
-
+    
     /**
      * SqsClient constructor.
      *
-     * @param \Micronative\ObjectFactory\Aws\Sns\SnsConfig|null $config config
+     * @param \Micronative\ObjectFactory\Aws\Sns\SnsConfigInterface|null $config config
      */
-    public function __construct(SnsConfig $config = null)
+    public function __construct(SnsConfigInterface $config = null)
     {
-        $this->config = $config;
+        $this->config  = $config;
         $this->factory = new SnsConnectionFactory($this->config->toArray());
         $this->context = $this->factory->createContext();
     }
-
+    
     /**
      * @param string $topicName topic name
      * @param string $body message body
@@ -42,32 +42,32 @@ class SnsClient implements SnsClientInterface
     {
         $topic = $this->context->createTopic($topicName);
         $this->context->declareTopic($topic);
-
+        
         $message = $this->context->createMessage($body, $properties);
         $this->context->createProducer()->send($topic, $message);
-
+        
         return $message;
     }
-
+    
     /**
-     * @return \Micronative\ObjectFactory\Aws\Sns\SnsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sns\SnsConfigInterface
      */
-    public function getConfig(): SnsConfig
+    public function getConfig(): SnsConfigInterface
     {
         return $this->config;
     }
-
+    
     /**
-     * @param \Micronative\ObjectFactory\Aws\Sns\SnsConfig $config
+     * @param \Micronative\ObjectFactory\Aws\Sns\SnsConfigInterface $config
      * @return SnsClient
      */
-    public function setConfig(SnsConfig $config): SnsClient
+    public function setConfig(SnsConfigInterface $config): SnsConfigInterface
     {
         $this->config = $config;
-
+        
         return $this;
     }
-
+    
     /**
      * @return \Micronative\Sns\SnsConnectionFactory
      */
@@ -75,18 +75,18 @@ class SnsClient implements SnsClientInterface
     {
         return $this->factory;
     }
-
+    
     /**
      * @param \Micronative\Sns\SnsConnectionFactory $factory
-     * @return SnsClient
+     * @return SnsClientInterface
      */
-    public function setFactory(SnsConnectionFactory $factory): SnsClient
+    public function setFactory(SnsConnectionFactory $factory): SnsClientInterface
     {
         $this->factory = $factory;
-
+        
         return $this;
     }
-
+    
     /**
      * @return \Micronative\Sns\SnsContext
      */
@@ -94,16 +94,16 @@ class SnsClient implements SnsClientInterface
     {
         return $this->context;
     }
-
+    
     /**
      * @param \Micronative\Sns\SnsContext $context
-     * @return SnsClient
+     * @return SnsClientInterface
      */
-    public function setContext(SnsContext $context): SnsClient
+    public function setContext(SnsContext $context): SnsClientInterface
     {
         $this->context = $context;
-
+        
         return $this;
     }
-
+    
 }

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Micronative\ObjectFactory\Log\Monolog;
 
@@ -18,13 +18,13 @@ use Raven_Client;
 
 class MonologFactory
 {
-
+    
     /** @var string */
     protected $configFile;
-
+    
     /** @var \Micronative\ObjectFactory\Log\Monolog\MonologConfigFactory */
     protected $configFactory;
-
+    
     /**
      * MonologFactory constructor.
      *
@@ -34,10 +34,10 @@ class MonologFactory
      */
     public function __construct(string $configFile = null)
     {
-        $this->configFile = $configFile;
+        $this->configFile    = $configFile;
         $this->configFactory = new MonologConfigFactory($this->configFile);
     }
-
+    
     /**
      * @param string|null $configName
      * @return \Monolog\Logger
@@ -48,13 +48,13 @@ class MonologFactory
     {
         /** @var \Micronative\ObjectFactory\Log\Monolog\MonologConfig $config */
         $config = $this->configFactory->get($configName);
-
-        $logger = new Logger($config->getName());
+        
+        $logger  = new Logger($config->getName());
         $handler = new ErrorHandler($logger);
         $handler->registerErrorHandler([], false);
         $handler->registerExceptionHandler();
         $handler->registerFatalHandler();
-
+        
         if ($config->isSentry()) {
             $ravenHandler = new RavenHandler(new Raven_Client($config->getSentryConfig()));
             $logger->pushHandler(
@@ -66,17 +66,17 @@ class MonologFactory
                     false
                 )
             );
-
+            
             $logger->pushProcessor(new ProcessIdProcessor);
             $logger->pushProcessor(new UidProcessor);
             $logger->pushProcessor(new WebProcessor);
             $logger->pushProcessor(new MemoryUsageProcessor);
             $logger->pushProcessor(new IntrospectionProcessor);
         }
-
+        
         $logger->pushHandler(new StreamHandler($config->getPath(), $config->getLevel()));
-
+        
         return $logger;
     }
-
+    
 }

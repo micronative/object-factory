@@ -4,13 +4,13 @@ namespace Micronative\ObjectFactory\Aws\Sns;
 
 class SnsClientFactory
 {
-
+    
     /** @var string */
     protected $configFile;
-
+    
     /** @var \Micronative\ObjectFactory\Aws\Sns\SnsConfigFactory */
     protected $configFactory;
-
+    
     /**
      * SqsClientFactory constructor.
      *
@@ -20,10 +20,10 @@ class SnsClientFactory
      */
     public function __construct(?string $configFile = null)
     {
-        $this->configFile = $configFile;
+        $this->configFile    = $configFile;
         $this->configFactory = new SnsConfigFactory($this->configFile);
     }
-
+    
     /**
      * @param string|null $connectionName
      * @return \Micronative\ObjectFactory\Aws\Sns\SnsClientInterface
@@ -31,10 +31,10 @@ class SnsClientFactory
      */
     public function create(?string $connectionName = null): SnsClientInterface
     {
-        /** @var \Micronative\ObjectFactory\Aws\Sns\SnsConfig $config */
+        /** @var \Micronative\ObjectFactory\Aws\Sns\SnsConfigInterface $config */
         $config = $this->configFactory->get($connectionName);
-
+        
         return new SnsClient($config);
     }
-
+    
 }
