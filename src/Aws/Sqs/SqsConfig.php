@@ -65,9 +65,9 @@ class SqsConfig implements SqsConfigInterface
     
     /**
      * @param string $connectionName
-     * @return SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface
      */
-    public function setConnectionName(string $connectionName): SqsConfig
+    public function setConnectionName(string $connectionName): SqsConfigInterface
     {
         $this->connectionName = $connectionName;
         
@@ -84,9 +84,9 @@ class SqsConfig implements SqsConfigInterface
     
     /**
      * @param string|null $key
-     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface
      */
-    public function setKey(string $key = null): SqsConfig
+    public function setKey(string $key = null): SqsConfigInterface
     {
         $this->key = $key;
         
@@ -103,9 +103,9 @@ class SqsConfig implements SqsConfigInterface
     
     /**
      * @param string|null $secret
-     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface
      */
-    public function setSecret(string $secret = null): SqsConfig
+    public function setSecret(string $secret = null): SqsConfigInterface
     {
         $this->secret = $secret;
         
@@ -122,9 +122,9 @@ class SqsConfig implements SqsConfigInterface
     
     /**
      * @param string|null $region
-     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface
      */
-    public function setRegion(string $region = null): SqsConfig
+    public function setRegion(string $region = null): SqsConfigInterface
     {
         $this->region = $region;
         
@@ -141,9 +141,9 @@ class SqsConfig implements SqsConfigInterface
     
     /**
      * @param string|null $queue
-     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface
      */
-    public function setQueue(string $queue = null): SqsConfig
+    public function setQueue(string $queue = null): SqsConfigInterface
     {
         $this->queue = $queue;
         
@@ -160,9 +160,9 @@ class SqsConfig implements SqsConfigInterface
     
     /**
      * @param bool|null $fifo
-     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfig
+     * @return \Micronative\ObjectFactory\Aws\Sqs\SqsConfigInterface
      */
-    public function setFifo(bool $fifo = null): SqsConfig
+    public function setFifo(bool $fifo = null): SqsConfigInterface
     {
         $this->fifo = $fifo;
         
