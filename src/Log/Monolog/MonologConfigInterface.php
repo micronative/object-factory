@@ -67,9 +67,9 @@ interface MonologConfigInterface
     public function setSentryDsn(string $sentryDsn = null): MonologConfigInterface;
     
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSentryPublicKey(): string;
+    public function getSentryPublicKey();
     
     /**
      * @param string $sentryPublicKey

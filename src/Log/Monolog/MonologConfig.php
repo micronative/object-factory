@@ -167,9 +167,9 @@ class MonologConfig implements MonologConfigInterface
     }
     
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSentryPublicKey(): string
+    public function getSentryPublicKey()
     {
         return $this->sentryPublicKey;
     }
