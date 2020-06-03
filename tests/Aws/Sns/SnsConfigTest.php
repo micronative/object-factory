@@ -1,6 +1,6 @@
 <?php
 
-namespace Micronative\Test\Aws\Sns;
+namespace Micronative\ObjectFactory\Test\Aws\Sns;
 
 use Micronative\ObjectFactory\Aws\Sns\SnsConfig;
 use PHPUnit\Framework\TestCase;

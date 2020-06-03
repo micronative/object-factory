@@ -155,9 +155,9 @@ interface DoctrineConfigInterface
     public function setCache(bool $cache): DoctrineConfigInterface;
     
     /**
-     * @return array
+     * @return string
      */
-    public function getCacheDir(): array;
+    public function getCacheDir(): string;
     
     /**
      * @param string $cacheDir

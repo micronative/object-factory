@@ -1,6 +1,6 @@
 <?php
 
-namespace Micronative\Test\Cache\Redis;
+namespace Micronative\ObjectFactory\Test\Cache\Redis;
 
 use Micronative\ObjectFactory\Cache\Redis\RedisConfigFactory;
 use Micronative\ObjectFactory\Cache\Redis\RedisConfig;

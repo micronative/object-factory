@@ -1,10 +1,11 @@
 <?php
 
-namespace Micronative\Test\Aws\Sqs;
+namespace Micronative\ObjectFactory\Test\Database\Doctrine;
+
 use Micronative\ObjectFactory\Database\Doctrine\EntityManagerFactory;
 use PHPUnit\Framework\TestCase;
 
-class SqsEntityManagerTest extends TestCase
+class EntityManagerTest extends TestCase
 {
     private $testDir;
     private $configContents;

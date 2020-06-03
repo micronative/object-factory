@@ -1,6 +1,6 @@
 <?php
 
-namespace Brighte\Tests\Infrastructure\Log\Monolog;
+namespace Micronative\ObjectFactory\Test\Log\Monolog;
 
 use Micronative\ObjectFactory\Log\Monolog\MonologFactory;
 use Monolog\Logger;

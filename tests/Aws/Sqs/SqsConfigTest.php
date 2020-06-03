@@ -1,6 +1,6 @@
 <?php
 
-namespace Micronative\Test\Aws\Sqs;
+namespace Micronative\ObjectFactory\Test\Aws\Sqs;
 
 use Micronative\ObjectFactory\Aws\Sqs\SqsConfig;
 use PHPUnit\Framework\TestCase;

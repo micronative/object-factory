@@ -346,9 +346,9 @@ class DoctrineConfig implements DoctrineConfigInterface
     }
     
     /**
-     * @return array
+     * @return string
      */
-    public function getCacheDir(): array
+    public function getCacheDir(): string
     {
         return $this->cacheDir;
     }

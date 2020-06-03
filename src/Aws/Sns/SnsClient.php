@@ -59,9 +59,9 @@ class SnsClient implements SnsClientInterface
     
     /**
      * @param \Micronative\ObjectFactory\Aws\Sns\SnsConfigInterface $config
-     * @return SnsClient
+     * @return \Micronative\ObjectFactory\Aws\Sns\SnsClientInterface
      */
-    public function setConfig(SnsConfigInterface $config): SnsConfigInterface
+    public function setConfig(SnsConfigInterface $config): SnsClientInterface
     {
         $this->config = $config;
         
@@ -78,7 +78,7 @@ class SnsClient implements SnsClientInterface
     
     /**
      * @param \Micronative\Sns\SnsConnectionFactory $factory
-     * @return SnsClientInterface
+     * @return \Micronative\ObjectFactory\Aws\Sns\SnsClientInterface
      */
     public function setFactory(SnsConnectionFactory $factory): SnsClientInterface
     {
@@ -97,7 +97,7 @@ class SnsClient implements SnsClientInterface
     
     /**
      * @param \Micronative\Sns\SnsContext $context
-     * @return SnsClientInterface
+     * @return \Micronative\ObjectFactory\Aws\Sns\SnsClientInterface
      */
     public function setContext(SnsContext $context): SnsClientInterface
     {

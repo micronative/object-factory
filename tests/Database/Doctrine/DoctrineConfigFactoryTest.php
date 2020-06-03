@@ -1,11 +1,12 @@
 <?php
 
-namespace Micronative\Test\Aws\Sqs;
+namespace Micronative\ObjectFactory\Test\Database\Doctrine;
+
 use Micronative\ObjectFactory\Database\Doctrine\DoctrineConfig;
 use Micronative\ObjectFactory\Database\Doctrine\DoctrineConfigFactory;
 use PHPUnit\Framework\TestCase;
 
-class SqsDoctrineConfigFactoryTest extends TestCase
+class DoctrineConfigFactoryTest extends TestCase
 {
     private $testDir;
     private $configContents;
