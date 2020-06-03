@@ -205,9 +205,9 @@ class MonologConfig implements MonologConfigInterface
     }
     
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSentryProjectId(): string
+    public function getSentryProjectId()
     {
         return $this->sentryProjectId;
     }

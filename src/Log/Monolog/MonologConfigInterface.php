@@ -89,9 +89,9 @@ interface MonologConfigInterface
     public function setSentryHost(string $sentryHost = null): MonologConfigInterface;
     
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSentryProjectId(): string;
+    public function getSentryProjectId();
     
     /**
      * @param string $sentryProjectId
