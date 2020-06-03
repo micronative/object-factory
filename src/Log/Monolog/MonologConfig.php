@@ -110,9 +110,9 @@ class MonologConfig implements MonologConfigInterface
     }
     
     /**
-     * @return int
+     * @return int|string
      */
-    public function getLevel(): int
+    public function getLevel()
     {
         return $this->level;
     }

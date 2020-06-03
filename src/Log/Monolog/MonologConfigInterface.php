@@ -34,9 +34,9 @@ interface MonologConfigInterface
     public function setPath(string $path = null): MonologConfigInterface;
     
     /**
-     * @return int
+     * @return int|string
      */
-    public function getLevel(): int;
+    public function getLevel();
     
     /**
      * @param int|string $level
