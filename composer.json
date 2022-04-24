@@ -15,9 +15,8 @@
   ],
   "require": {
     "php": "^7.0",
-    "micronative/sqs": "^1.1.0",
-    "micronative/sns": "^1.1.0",
-    "micronative/service-schema": "^1.5.0",
+    "micronative/sqs": "^2.0.0",
+    "micronative/sns": "^2.0.0",
     "doctrine/orm": "^2.5",
     "sentry/sentry": "1.10.0",
     "monolog/monolog": "1.25.1",
